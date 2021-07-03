@@ -23,6 +23,7 @@ body{
 .TSF{
   color: white !important;
   font-size: 38px !important;
+  padding-left: 3% !important;
 }
 
 .header-background{
@@ -102,10 +103,15 @@ body{
     padding: 1rem 1.5rem;
     font-size: 1.2rem;
   }
+  
 
 
   .btn:hover{
-   background-color:skyblue !important;
+   background-color: #0F52BA !important;
+  }
+
+  .search{
+    padding-right: 3% !important;
   }
   
   .btn-1{
@@ -115,11 +121,13 @@ body{
     border-radius: 10px;
     padding: 1rem 1.5rem;
     font-size: 1.2rem;
+    margin-left: 45%;
   }
 
 
   .btn-1:hover{
-   background-color:#4b79a1 !important;
+   background-color: #0F52BA !important;
+   cursor: pointer;
   }
   
 
@@ -129,27 +137,31 @@ body{
     line-height: 1.4;
     text-align: center;
     color: #007bb7;
-    margin-top: 0rem;
-    min-height: 0px;
   }
 
   .heading-top{
-    padding: 4rem 10rem 8rem 10rem ;
-    left: 50%;
+    padding: 0rem 8rem 8rem 8rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     
   }
 
 
   .column-left{
-    min-height: 630px !important ;
+    min-height: 720px !important ;
     background-color: #3a6073 !important;
     background-attachment: scroll, scroll;
     object-fit: cover;
     -o-object-fit: cover;
   }
 
+  .column-right{
+    margin-top: 5rem !important;
+  }
+
   .column-right .section-title{
-    margin-top: 80px;
+    margin-top: 100px;
     padding: 5rem 2rem 0rem 5rem;
     font-size: 2.8rem;
     color: #007bb7;
@@ -176,8 +188,12 @@ body{
     text-align: justify;
   }
 
+  .our-service-left{
+    margin-top: 5rem !important;
+  }
+
   .our-service-right{
-    min-height: 630px !important ;
+    min-height: 730px !important ;
     background-color: #3a6073 !important;
     background-attachment: scroll, scroll;
     object-fit: cover;
@@ -194,12 +210,12 @@ body{
 
   .service-title-1{
     padding: 1rem 2rem 1rem 5rem;
-    font-size:  1.5rem ;  
+    font-size:  1.3rem ;  
   }
 
   .service-title-2{
     padding: 1rem 5rem 1rem 1rem;
-    font-size:  1.5rem;  
+    font-size:  1.3rem;  
   }
 
   .fa{
@@ -207,11 +223,11 @@ body{
   }
 
   .service-1 .fa{
-    padding: 3rem 2rem 1rem 5rem !important;
+    padding: 3rem 2rem 1rem 10.5rem !important;
   }
 
   .service-2 .fa{
-    padding: 3rem 5rem 1rem 5rem !important;
+    padding: 3rem 5rem 1rem 10.5rem !important;
   }
 
   
@@ -258,6 +274,10 @@ body{
     text-decoration: none;
     border: 1px;
     border-radius: 50px;
+  }
+
+  .gototopbtn:hover{
+    color: #0F52BA !important;
   }
 
 
