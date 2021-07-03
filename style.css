@@ -1,3 +1,4 @@
+
 *{
     margin: 0px;
     padding: 0px !;
@@ -10,13 +11,18 @@ html{
 
 body{
   margin-top: 40px;
-  padding: 40px;
+  padding-top: 50px !important;
   font-size: 18px;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   line-height: 20px;
   color:white;
   height: 100%;
-  background-color: rgba(50,58,69, 0.5) !important;
+  background-color: #D3D3D3 !important;
+}
+
+.TSF{
+  color: white !important;
+  font-size: 38px !important;
 }
 
 .header-background{
@@ -62,9 +68,6 @@ body{
   text-decoration: none;
 }
 
-.navbar-brand{
-  font-size: 2.2rem;
-}
 
 .navbar-toggler{
   border: none;
@@ -81,8 +84,9 @@ body{
   }
 
   a:hover{
-    color: blue !important;
-  }
+    color: skyblue !important;
+    font-weight: 600 !important;
+  } 
 
   .navbar-expand-lg .navbar-nav .nav-link{
     padding: 1.4rem 1rem;
@@ -99,18 +103,40 @@ body{
     font-size: 1.2rem;
   }
 
+
   .btn:hover{
-   background-color: blue !important;
+   background-color:skyblue !important;
   }
   
+  .btn-1{
+    background-color: #007bb7 !important;
+    color: #fff;
+    border: #16222a;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+  }
+
+
+  .btn-1:hover{
+   background-color:#4b79a1 !important;
+  }
+  
+
   .heading{
     font-size: 3rem;
     font-weight: bold;
     line-height: 1.4;
     text-align: center;
     color: #007bb7;
-    margin-top: 180px;
-    min-height: 450px;
+    margin-top: 0rem;
+    min-height: 0px;
+  }
+
+  .heading-top{
+    padding: 4rem 10rem 8rem 10rem ;
+    left: 50%;
+    
   }
 
 
@@ -134,7 +160,17 @@ body{
     margin-top: 15px;
     padding: 1rem 5rem 1rem 5rem;
     font-size: 1.1rem;
-    color: white;
+    color: #36454F;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: justify;
+  }
+
+  .paragraph-heading{
+    margin-top: 15px;
+    padding: 2rem 15rem 2rem 15rem;
+    font-size: 1.1rem;
+    color: #36454F;
     font-weight: 500;
     line-height: 1.4;
     text-align: justify;
@@ -231,8 +267,8 @@ body{
 
 footer {
   background: #16222a;
-  background: -webkit-linear-gradient(59deg, #3a6073, #16222a);
-  background: linear-gradient(59deg, #3a6073, #16222a);
+  background: -webkit-linear-gradient(59deg, #4b79a1, #283e51);
+  background: linear-gradient(59deg, #4b79a1, #283e51);
   color: white;
   margin-top: 100px;
 }
