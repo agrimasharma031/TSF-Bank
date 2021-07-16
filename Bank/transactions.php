@@ -14,10 +14,12 @@ if($conn->connect_error)
     die("Connection failed : ".$conn->connect_error) ;
 }
 
+$show = "SELECT * FROM transactions ORDER BY id " ;
+$result = $conn->query($show) ;
 
+mysqli_close($conn) ;
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -99,8 +101,8 @@ if($conn->connect_error)
                 </svg>
                 </a>
                 <div class="dropdown-menu sm-menu drop" aria-labelledby="dropdown01">
-                <a class="dropdown-item drop-item" href="new.php">New User</a>
-                <a class="dropdown-item drop-item" href="users.php">View Users</a>
+                <a class="dropdown-item drop-item" href="./new.php">New User</a>
+                <a class="dropdown-item drop-item" href="./users.php">View Users</a>
                 <a class="dropdown-item drop-item" href="#">Transaction History</a>
                 </div>
               </li>
@@ -121,52 +123,46 @@ if($conn->connect_error)
 
 <!-----------------------------------------------------------Nav-Bar-------------------------------------------------------------->
 
-	<div class="container">
-        <h2 class="text-center pt-4" style="color : black;">Transfer History</h2>
-        
-       <br>
-       <div class="table-responsive-sm">
-    <table class="table table-hover table-striped table-condensed table-bordered">
-        <thead style="color : black;">
-            <tr>
-                <th class="text-center">S.No.</th>
-                <th class="text-center">Sender</th>
-                <th class="text-center">Receiver</th>
-                <th class="text-center">Amount</th>
-                <th class="text-center">Date & Time</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
 
-            $sql ="select * from transactions";
+<div class="text-center font-weight-bold" style="font-size: xx-large; color:#385f86 ;">Transaction History</div>
 
-            $query =mysqli_query($conn, $sql);
+<div class="container table-responsive py-12">
+      <br>
+  <table class="table table-bordered table-hover content">
+    <thead class="head">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Sender</th>
+        <th scope="col">Receiver</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
 
-            while($rows = mysqli_fetch_assoc($query))
-            {
-        ?>
+    <?php 
+    while($rows=$result->fetch_assoc())
+    {
 
-            <tr style="color : white;">
-            <td class="py-2"><?php echo $rows['Id']; ?></td>
-            <td class="py-2"><?php echo $rows['Name']; ?></td>
-            <td class="py-2"><?php echo $rows['Email']; ?></td>
-            <td class="py-2"><?php echo $rows['Amount']; ?> </td>
-            <td class="py-2"><?php echo $rows['datetime']; ?> </td>
-                
-        <?php
-            }
+    
+    ?>
 
-        ?>
-        </tbody>
-    </table>
-
-    </div>
+    <tbody>
+      <tr>
+        <th scope="row"><?php echo $rows['Id'] ;?></th>
+        <td><?php echo $rows['Sender'] ;?></td>
+        <td><?php echo $rows['Receiver'] ;?></td>
+        <td><?php echo $rows['Amount'] ;?></td>
+      </tr>
+    <?php
+    }
+    ?>
+      
+    </tbody>
+  </table>
 </div>
 
 
 <!-----------------------------------------------------------Footer--------------------------------------------------------------->
-<footer class="mainfooter footer" role="contentinfo">
+<footer class="mainfooter" role="contentinfo">
     <div class="footer-middle">
       <div class="container">
         <div class="row">
@@ -219,10 +215,7 @@ if($conn->connect_error)
   </footer>
   <!-----------------------------------------------------------Footer-------------------------------------------------------------->
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
  
-
 </body>
 </html>

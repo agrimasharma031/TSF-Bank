@@ -1,25 +1,8 @@
 <?php
-
-$servername = "localhost" ;
-$username = "root" ;
-$password = "" ;
-$dbname = "bank" ;
-
-//Connection
-$conn = new mysqli($servername,$username,$password,$dbname) ;
-
-//Check Connection
-if($conn->connect_error)
-{
-    die("Connection failed : ".$conn->connect_error) ;
-}
-
-$show = "SELECT * FROM customers ORDER BY id " ;
-$result = $conn->query($show) ;
-
-mysqli_close($conn) ;
+session_start() ;
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,8 +44,7 @@ mysqli_close($conn) ;
     </script>
     
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/users.css">
-   
+    <link rel="stylesheet" href="css/new.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -93,14 +75,14 @@ mysqli_close($conn) ;
               <li class="nav-item px-lg-2"> <a class="nav-link" href="./index.html #aboutus"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-user"></i></i></span>&nbsp About Us</a> </li>
       
               <li class="nav-item px-lg-2 "> <a class="nav-link" href="./index.html #ourservices"> <span class="d-inline-block d-lg-none icon-width"><i class="fas fa-calculator"></i></span>&nbsp Services</a> </li>
-            
+
               <li class="nav-item px-lg-2 dropdown d-menu drop-menu">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-caret-square-down"></i></span>Resources
                 
                 <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
                 </a>
-                <div class="dropdown-menu sm-menu drop" aria-labelledby="dropdown01">
+                <div class="dropdown-menu shadow-sm sm-menu drop" aria-labelledby="dropdown01">
                 <a class="dropdown-item drop-item" href="./new.php">New User</a>
                 <a class="dropdown-item drop-item" href="./users.php">View Users</a>
                 <a class="dropdown-item drop-item" href="./transactions.php">Transaction History</a>
@@ -119,51 +101,99 @@ mysqli_close($conn) ;
         </div>
       </nav>
     </div>
-    </div>
+    <?php
+          if(isset($_SESSION['status'])) ;
+          {
+            
+  ?>
+                <div class="alert alert-success alert-dismissible fade show msg" role="alert">
+                <?php  echo(@$_SESSION["status"]) ;?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+  <?php
+            unset($_SESSION["status"]) ;
+          }
+  ?>
+  </div>
+
+  
+        <br>
 
 <!-----------------------------------------------------------Nav-Bar-------------------------------------------------------------->
 
-<div class="text-center font-weight-bold" style="font-size: xx-large; color:#385f86 ;">All Users</div>
-<br>
+<form action="transferform.php" method="post">
+  <div class="contact">
+       
+    <div class="card border-primary rounded-0">
+      <div class="card-header p-0">
+        <div class=" text-white text-center py-2" style="background-color: #4b79a1;">
+        
+        
+        <h3><i class="fa fa-money"></i> &nbsp Payment Invoice</h3>
 
-<div class="container table-responsive py-12">
-  <table class="table table-bordered table-hover content">
-    <thead class="head">
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Balance</th>
-        <th scope="col">Tranfer</th>
-      </tr>
-    </thead>
-
-    <?php 
-    while($rows=$result->fetch_assoc())
-    {
-
-    
-    ?>
-
-    <tbody>
-      <tr>
-        <th scope="row"><?php echo $rows['Id'] ;?></th>
-        <td><?php echo $rows['Name'] ;?></td>
-        <td><?php echo $rows['Email'] ;?></td>
-        <td><?php echo $rows['Balance'] ;?></td>
-        <td><a href="transfer2.php?Id=' . $rows['Id'] . ' &name=<?php echo $rows['Name']?>"><button type="button" class="btn" name="transfer">Transfer</button></td>
-      </tr>
-    <?php
-    }
-    ?>
+        </div>
+      </div>
       
-    </tbody>
-  </table>
-</div>
+      <div class="card-body p-3">
+
+        <div class="form-group">
+          <label> Sender's Name </label>
+          <div class="input-group mb-3 input-group mb-2 mb-sm-0 input-group mb-3">
+          <select  name= "Sender"class="custom-select" id="inputGroupSelect02">
+          <option selected>Enter your Name</option>
+
+          <?php 
+
+          include 'payment.php' ;
+           while($rows = $result->fetch_assoc())
+           {
+             $name = $rows['Name'] ;
+             echo "<option value='$name'>$name</option>" ;
+           }
+          ?>
+        </select>
+        </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Receiver" >Receiver's Name</label>
+        <div class="input-group mb-3 input-group mb-2 mb-sm-0 input-group mb-3">
+          <select  name= " Receiver"class="custom-select" id="inputGroupSelect02">
+          <option selected>Choose...</option>
+
+          <?php 
+
+          include 'payment.php' ;
+           while($rows = $result->fetch_assoc())
+           {
+             $name = $rows['Name'] ;
+             echo "<option value='$name'>$name</option>" ;
+           }
+          ?>
+        </select>
+        </div>
+        </div>
 
 
+        <div class="form-group">
+          <label>Amount</label>
+          <div class="input-group mb-2 mb-sm-0">
+            <input type="text" value="" name="Amount" required class="form-control" id="inlineFormInputGroupUsername" placeholder="Enter the Amount">
+          </div>
+
+          
+        </div>
+        <div class="text-center">
+          <input type="submit" name="submit" value="Pay" class="btn btn-block rounded-0 py-2">
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+</form>
 <!-----------------------------------------------------------Footer--------------------------------------------------------------->
-<footer class="mainfooter" role="contentinfo">
+  <footer class="mainfooter" role="contentinfo">
     <div class="footer-middle">
       <div class="container">
         <div class="row">

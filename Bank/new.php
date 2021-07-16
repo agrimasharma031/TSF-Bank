@@ -81,9 +81,9 @@ session_start() ;
                 </svg>
                 </a>
                 <div class="dropdown-menu shadow-sm sm-menu drop" aria-labelledby="dropdown01">
-                <a class="dropdown-item drop-item" href="new.php">New User</a>
-                <a class="dropdown-item drop-item" href="users.php">View Users</a>
-                <a class="dropdown-item drop-item" href="#">Transaction History</a>
+                <a class="dropdown-item drop-item" href="./new.php">New User</a>
+                <a class="dropdown-item drop-item" href="./users.php">View Users</a>
+                <a class="dropdown-item drop-item" href="./transactions.php">Transaction History</a>
                 </div>
               </li>
 
@@ -141,18 +141,21 @@ session_start() ;
             <input value="" type="text" name="Name" required class="form-control" id="inlineFormInputGroupUsername" placeholder="Your name">
           </div>
         </div>
+
         <div class="form-group">
           <label>Your email</label>
           <div class="input-group mb-2 mb-sm-0">
             <input type="email" value="" name="Email" required class="form-control" id="inlineFormInputGroupUsername" placeholder="Your Email">
           </div>
         </div>
+
         <div class="form-group">
           <label>Initial Balance</label>
           <div class="input-group mb-2 mb-sm-0">
             <input type="text" value="" name="Balance" required 
             class="form-control" id="inlineFormInputGroupUsername" placeholder="Initial Balance">
           </div>
+          
         </div>
         <div class="text-center">
           <input type="submit" name="submit" value="SUBMIT" class="btn btn-block rounded-0 py-2">
@@ -178,9 +181,9 @@ session_start() ;
                 <li><a href="./index.html #aboutus">About Us</a></li>
                 <li><a href="./index.html #ourservices">Our Services</a></li>
                 <li><a href="./index.html #contactus">Contact Us</a></li>
-                <li><a href="#">New Customer</a></li>
-                <li><a href="users.php">View All Customers</a></li>
-                <li><a href="#">View Transactions</a></li>
+                <li><a href="./new.php">New Customer</a></li>
+                <li><a href="./users.php">View All Customers</a></li>
+                <li><a href="./transactions.php">View Transactions</a></li>
 
               </ul>
             </div>
