@@ -13,3 +13,6 @@ It is made using HTML, CSS, and Bootstrap. For Backend PHP has been used and MyS
 
 [TSF Bank](http://localhost/Bank/index.html#)
 
+# Let's Connect !!
+[<img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"/>](https://www.linkedin.com/in/agrima-sharma-a7a40b192/)
+
