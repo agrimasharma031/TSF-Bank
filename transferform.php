@@ -80,17 +80,17 @@ if($flag==true)
     $sql = "INSERT INTO transactions VALUES('','$sender','$receiver','$amount')" ;
 
     if($conn->query($sql) === TRUE)
-{
+    {
     $_SESSION["status"] = "Transaction Successful." ;
     header("location: transfer2.php") ;
 
-}
-else
-{
+    }
+    else
+    {
     $_SESSION['status'] = "Transaction failed." ;
     header("location: transfer2.php") ;
 
-}
+    }
 
     if ($con->query($sql) === TRUE) {
     } else 
@@ -104,7 +104,6 @@ else
 
 //Close
 mysqli_close($conn) ;
-
 
 
 ?>
